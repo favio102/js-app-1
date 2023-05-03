@@ -69,7 +69,7 @@ function game() {
         console.log(`☆`.repeat(15) +` Round ${countRound++} `+ `☆`.repeat(15) + `\nScore: Branko ()|() SkyNet`);
         playerSelection = player();
         if (playerSelection === -100) {
-            console.log("Get yourself togheter and try again!!⛔⛔");
+            console.log("Get yourself together and try again!!⛔⛔");
             break;
         }
         console.log(`You chose: ${playerSelection}`);
