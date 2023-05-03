@@ -69,7 +69,7 @@ function game() {
         console.log(`☆`.repeat(15) +` Round ${countRound++} `+ `☆`.repeat(15) + `\nScore: Branko ()|() SkyNet`);
         playerSelection = player();
         if (playerSelection === -100) {
-            console.log("Wrong Input⛔⛔");
+            console.log("Get yourself togheter and try again!!⛔⛔");
             break;
         }
         console.log(`You chose: ${playerSelection}`);
@@ -88,11 +88,11 @@ function game() {
         rounds--;
     }
     if (resultNumber > 0 && playerSelection !== -100) {
-        console.log("Hooraayyy!!!You Did It !!! SkyNet is Defeated !!🎉🎉 ");
+        console.log("Yes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 ");
     } else if (resultNumber < 0 && playerSelection !== -100) {
-        console.log("SkyNet Wins The Game!! We are Doomed!!😢😢💥💥");
+        console.log("Branko Wins The Game!! We are fucked!!😢😢💥💥");
     } else if (resultNumber === 0 && playerSelection !== -100) {
-        console.log("Its a Tie!! No one won!!➖➖");
+        console.log("It's a draw!! Both of you lost no one wins!!➖➖");
     }
 }
 
