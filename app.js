@@ -66,7 +66,7 @@ function game() {
     let playerSelection;
     let computerSelection;
     while (rounds > 0) {
-        console.log(`== Round ${countRound++} == `);
+        console.log(`☆`.repeat(15) +` Round ${countRound++} `+ `☆`.repeat(15) + `\nScore: Branko ()|() SkyNet`);
         playerSelection = player();
         if (playerSelection === -100) {
             console.log("Wrong Input⛔⛔");
