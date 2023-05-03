@@ -8,7 +8,7 @@ function computerPlay() {
 function player() {
     let playerPick;
     let correctInputs = ["rock", "paper", "scissors"];
-    playerPick = prompt("Rock Paper Or Scissors").toLowerCase();
+    playerPick = prompt("★".repeat(15)+"\nChoose Rock, Paper Or Scissors\n" + "★".repeat(15)).toLowerCase();
     if (playerPick === "" || !correctInputs.includes(playerPick)) {
         return -100;
     }
@@ -65,8 +65,10 @@ function game() {
     let rounds = 5;
     let playerSelection;
     let computerSelection;
+    let score1 = 0;
+    let score2 = 0;
     while (rounds > 0) {
-        console.log(`☆`.repeat(15) +` Round ${countRound++} `+ `☆`.repeat(15) + `\nScore: Branko ()|() SkyNet`);
+        console.log(`☆`.repeat(15) +` Round ${countRound++} `+ `☆`.repeat(15) + `\nScore: Branko (${score1})|(${score2}) SkyNet`);
         playerSelection = player();
         if (playerSelection === -100) {
             console.log("Get yourself together and try again!!⛔⛔");
@@ -78,9 +80,11 @@ function game() {
         result = playRound(playerSelection, computerSelection);
         if (result.whoWon === "player") {
             resultNumber++;
+            score1 += 1;
             console.log(result.message);
         } else if (result.whoWon === "computer") {
             resultNumber--;
+            score2 += 1;
             console.log(result.message);
         } else {
             console.log(result.message);
@@ -89,10 +93,13 @@ function game() {
     }
     if (resultNumber > 0 && playerSelection !== -100) {
         console.log("Yes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 ");
+        console.log(`Final score: Branko (${score1})|(${score2}) SkyNet`);
     } else if (resultNumber < 0 && playerSelection !== -100) {
         console.log("Branko Wins The Game!! We are fucked!!😢😢💥💥");
+        console.log(`Final score: Branko (${score1})|(${score2}) SkyNet`);
     } else if (resultNumber === 0 && playerSelection !== -100) {
         console.log("It's a draw!! Both of you lost no one wins!!➖➖");
+        console.log(`Final score: Branko (${score1})|(${score2}) SkyNet`);
     }
 }
 
