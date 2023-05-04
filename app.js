@@ -8,7 +8,7 @@ function computerPlay() {
 function player() {
     let playerPick;
     let correctInputs = ["rock", "paper", "scissors"];
-    playerPick = prompt("---------START GAME-------"+"\nChoose Rock, Paper Or Scissors\n" + "★".repeat(15)).toLowerCase();
+    playerPick = prompt("★".repeat(15) + "\n---------START GAME-------\n" + "        Human VS Computer\n" + "★".repeat(15) + "\n\nChoose: Rock, Paper Or Scissors").toLowerCase();
     if (playerPick === "" || !correctInputs.includes(playerPick)) {
         return -100;
     }
@@ -68,7 +68,7 @@ function game() {
     let score1 = 0;
     let score2 = 0;
     while (rounds > 0) {
-        console.log(`☆`.repeat(15) +` Round ${countRound++} `+ `☆`.repeat(15) + `\nScore: Branko (${score1})|(${score2}) SkyNet`);
+        console.log(`☆`.repeat(10) +` Round ${countRound++} `+ `☆`.repeat(10) + `\nScore: Branko (${score1})|(${score2}) SkyNet`);
         playerSelection = player();
         if (playerSelection === -100) {
             console.log("Get yourself together and try again!!⛔⛔");
@@ -92,14 +92,11 @@ function game() {
         rounds--;
     }
     if (resultNumber > 0 && playerSelection !== -100) {
-        console.log("Yes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 ");
-        console.log(`Final score: Branko (${score1})|(${score2}) SkyNet`);
-    } else if (resultNumber < 0 && playerSelection !== -100) {
-        console.log("Branko Wins The Game!! We are fucked!!😢😢💥💥");
-        console.log(`Final score: Branko (${score1})|(${score2}) SkyNet`);
+      window.alert('_-'.repeat(22)+`\nBranko Wins The Game!! We are fucked!!😢😢💥💥 \n`+'_-'.repeat(22)+`\nFinal score: Branko (${score1})|(${score2}) SkyNet`);
+    } else if (resultNumber < 0 && playerSelection !== -20) {
+      window.alert('_/'.repeat(22)+`\nYes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 \n`+'_/'.repeat(22)+`\nFinal score: Branko (${score1})|(${score2}) SkyNet`);
     } else if (resultNumber === 0 && playerSelection !== -100) {
-        console.log("It's a draw!! Both of you lost no one wins!!➖➖");
-        console.log(`Final score: Branko (${score1})|(${score2}) SkyNet`);
+        window.alert('-|'.repeat(22)+`\nIt's a draw!! Both of you lost no one wins!!➖➖ \n`+'-|'.repeat(22)+`\nFinal score: Branko (${score1})|(${score2}) SkyNet`);
     }
 }
 
