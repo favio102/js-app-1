@@ -8,7 +8,7 @@ function computerPlay() {
 function player() {
     let playerPick;
     let correctInputs = ["rock", "paper", "scissors"];
-    playerPick = prompt("★".repeat(15)+"\nChoose Rock, Paper Or Scissors\n" + "★".repeat(15)).toLowerCase();
+    playerPick = prompt("---------START GAME-------"+"\nChoose Rock, Paper Or Scissors\n" + "★".repeat(15)).toLowerCase();
     if (playerPick === "" || !correctInputs.includes(playerPick)) {
         return -100;
     }
