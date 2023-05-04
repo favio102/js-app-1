@@ -8,7 +8,13 @@ function computerPlay() {
 function player() {
     let playerPick;
     let correctInputs = ["rock", "paper", "scissors"];
-    playerPick = prompt("★".repeat(15) + "\n---------START GAME-------\n" + "        Human VS Computer\n" + "★".repeat(15) + "\n\nChoose: Rock, Paper Or Scissors").toLowerCase();
+    playerPick = prompt(
+        "★".repeat(15) +
+            "\n---------START GAME-------\n" +
+            "        Human VS Computer\n" +
+            "★".repeat(15) +
+            "\n\nChoose: Rock, Paper Or Scissors"
+    ).toLowerCase();
     if (playerPick === "" || !correctInputs.includes(playerPick)) {
         return -100;
     }
@@ -68,7 +74,12 @@ function game() {
     let score1 = 0;
     let score2 = 0;
     while (rounds > 0) {
-        console.log(`☆`.repeat(10) +` Round ${countRound++} `+ `☆`.repeat(10) + `\nScore: Branko (${score1})|(${score2}) SkyNet`);
+        console.log(
+            `☆`.repeat(10) +
+                ` Round ${countRound++} ` +
+                `☆`.repeat(10) +
+                `\nScore: Branko (${score1})|(${score2}) Team Brainnest`
+        );
         playerSelection = player();
         if (playerSelection === -100) {
             console.log("Get yourself together and try again!!⛔⛔");
@@ -92,11 +103,26 @@ function game() {
         rounds--;
     }
     if (resultNumber > 0 && playerSelection !== -100) {
-      window.alert('_-'.repeat(22)+`\nBranko Wins The Game!! We are fucked!!😢😢💥💥 \n`+'_-'.repeat(22)+`\nFinal score: Branko (${score1})|(${score2}) SkyNet`);
+        window.alert(
+            "_-".repeat(22) +
+                `\nBranko Wins The Game!! We are fucked!!😢😢💥💥 \n` +
+                "_-".repeat(22) +
+                `\nFinal score: Branko (${score1})|(${score2}) Team Brainnest`
+        );
     } else if (resultNumber < 0 && playerSelection !== -20) {
-      window.alert('_/'.repeat(22)+`\nYes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 \n`+'_/'.repeat(22)+`\nFinal score: Branko (${score1})|(${score2}) SkyNet`);
+        window.alert(
+            "_/".repeat(22) +
+                `\nYes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 \n` +
+                "_/".repeat(22) +
+                `\nFinal score: Branko (${score1})|(${score2}) Team Brainnest`
+        );
     } else if (resultNumber === 0 && playerSelection !== -100) {
-        window.alert('-|'.repeat(22)+`\nIt's a draw!! Both of you lost no one wins!!➖➖ \n`+'-|'.repeat(22)+`\nFinal score: Branko (${score1})|(${score2}) SkyNet`);
+        window.alert(
+            "-|".repeat(22) +
+                `\nIt's a draw!! Both of you lost no one wins!!➖➖ \n` +
+                "-|".repeat(22) +
+                `\nFinal score: Branko (${score1})|(${score2}) Team Brainnest`
+        );
     }
 }
 
