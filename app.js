@@ -74,7 +74,7 @@ function game() {
       `☆`.repeat(10) +
         ` Round ${countRound++} ` +
         `☆`.repeat(10) +
-        `\nScore: Branko (${score1})|(${score2}) Team Brainnest`
+        `\nScore: ${userName} (${score1})|(${score2}) Team Brainnest`
     );
     playerSelection = player();
     if (playerSelection === -100) {
@@ -98,7 +98,6 @@ function game() {
     }
     rounds--;
   }
-
   if (resultNumber > 0 && playerSelection !== -100) {
     window.alert(
       "_-".repeat(22) +
