@@ -6,6 +6,7 @@ function computerPlay() {
 }
 
 function player() {
+    let exit;
     let playerPick;
     let correctInputs = ["rock", "paper", "scissors"];
     playerPick = prompt(
@@ -14,17 +15,29 @@ function player() {
             "        Human VS Computer\n" +
             "★".repeat(15) +
             "\n\nChoose: Rock, Paper Or Scissors"
-    ).toLowerCase();
+    );
+
     if (playerPick === "" || !correctInputs.includes(playerPick)) {
-        return -100;
+        if (playerPick == null) {
+            exit = prompt(
+                "Are you sure you want to exit ? Type yes to exit,or press anything else to continue"
+            ).toLowerCase();
+        }
+        if (exit == "yes") {
+            console.log("You exited successfully");
+            return "exit";
+        }
+        return "Wrong Input";
     }
-    return playerPick;
+    return playerPick.toLowerCase();
 }
 
 function playRound(playerSelection, computerSelection) {
     let resultRound;
-    if (playerSelection === -100) {
+    if (playerSelection === "Wrong Input") {
         resultRound = { message: "Wrong Input", whoWon: -100 };
+    } else if (playerSelection === "exit") {
+        resultRound = { message: "You stopped the game" };
     } else if (playerSelection === computerSelection) {
         resultRound = { message: "Tie" };
     } else if (playerSelection === "rock" && computerSelection === "paper") {
@@ -66,44 +79,62 @@ function playRound(playerSelection, computerSelection) {
 
 function game() {
     let resultNumber = 0;
-    let countRound = 1;
+    let exit;
     let result;
-    let userName;
-    let rounds = 5;
+
+    let rounds = 6;
     let playerSelection;
     let computerSelection;
     let score1 = 0;
     let score2 = 0;
-    userName = prompt("Write your name...");
-    while (rounds > 0) {
+    let userName = prompt(
+        "Welcome to Rock,Paper,Scissors game.Write your name in order to continue..."
+    ).trim();
+    if (userName == "") {
+        userName = prompt("Check input and enter name again");
+        if (userName == "") {
+            alert(
+                "You did't enter a name 2 times , refresh page in order to continue"
+            );
+            return;
+        }
+    }
+    for (let countRound = 1; countRound < rounds; countRound++) {
         console.log(
             `☆`.repeat(10) +
-                ` Round ${countRound++} ` +
+                ` Round ${countRound} ` +
                 `☆`.repeat(10) +
                 `\nScore: ${userName} (${score1})|(${score2}) Team Brainnest`
         );
         playerSelection = player();
-        if (playerSelection === -100) {
-            console.log("Get yourself together and try again!!⛔⛔");
-            break;
+        if (playerSelection === null) {
+            exit = prompt("Are you sure ?");
         }
         console.log(`You chose: ${playerSelection}`);
         computerSelection = computerPlay();
         console.log(`Computer chose: ${computerSelection}`);
         result = playRound(playerSelection, computerSelection);
+
         if (result.whoWon === "player") {
             resultNumber++;
             score1 += 1;
+
             console.log(result.message);
         } else if (result.whoWon === "computer") {
             resultNumber--;
             score2 += 1;
             console.log(result.message);
-        } else {
+        } else if (result.message === "Tie") {
             console.log(result.message);
+        } else if (result.message === "You stopped the game") {
+            console.log("Game ended");
+            return;
+        } else {
+            console.log(result.message, "This round didn't count");
+            countRound--;
         }
-        rounds--;
     }
+
     if (resultNumber > 0 && playerSelection !== -100) {
         window.alert(
             "_-".repeat(22) +
@@ -111,7 +142,7 @@ function game() {
                 "_-".repeat(22) +
                 `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
         );
-    } else if (resultNumber < 0 && playerSelection !== -20) {
+    } else if (resultNumber < 0 && playerSelection !== -100) {
         window.alert(
             "_/".repeat(22) +
                 `\nYes!!! Team Brainnest won !!! ${userName} is Defeated !!🎉🎉 \n` +
@@ -127,5 +158,4 @@ function game() {
         );
     }
 }
-
 game();
