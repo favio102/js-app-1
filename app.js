@@ -62,11 +62,13 @@ function game() {
   let resultNumber = 0;
   let countRound = 1;
   let result;
+  let userName;
   let rounds = 5;
   let playerSelection;
   let computerSelection;
   let score1 = 0;
   let score2 = 0;
+  userName = prompt("Write your name...");
   while (rounds > 0) {
     console.log(
       `☆`.repeat(10) +
@@ -96,51 +98,29 @@ function game() {
     }
     rounds--;
   }
+
   if (resultNumber > 0 && playerSelection !== -100) {
     window.alert(
       "_-".repeat(22) +
-        `\nBranko Wins The Game!! We are fucked!!😢😢💥💥 \n` +
+        `\n${userName} Wins The Game!! We are fucked!!😢😢💥💥 \n` +
         "_-".repeat(22) +
-        `\nFinal score: Branko (${score1})|(${score2}) Team Brainnest`
+        `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
     );
   } else if (resultNumber < 0 && playerSelection !== -20) {
     window.alert(
       "_/".repeat(22) +
-        `\nYes!!! Team Brainnest won !!! Branko is Defeated !!🎉🎉 \n` +
+        `\nYes!!! Team Brainnest won !!! ${userName} is Defeated !!🎉🎉 \n` +
         "_/".repeat(22) +
-        `\nFinal score: Branko (${score1})|(${score2}) Team Brainnest`
+        `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
     );
   } else if (resultNumber === 0 && playerSelection !== -100) {
     window.alert(
       "-|".repeat(22) +
         `\nIt's a draw!! Both of you lost no one wins!!➖➖ \n` +
         "-|".repeat(22) +
-        `\nFinal score: Branko (${score1})|(${score2}) Team Brainnest`
+        `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
     );
   }
-  rounds--;
-}
-if (resultNumber > 0 && playerSelection !== -100) {
-  window.alert(
-    "_-".repeat(22) +
-      `\n${userName} Wins The Game!! We are fucked!!😢😢💥💥 \n` +
-      "_-".repeat(22) +
-      `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
-  );
-} else if (resultNumber < 0 && playerSelection !== -20) {
-  window.alert(
-    "_/".repeat(22) +
-      `\nYes!!! Team Brainnest won !!! ${userName} is Defeated !!🎉🎉 \n` +
-      "_/".repeat(22) +
-      `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
-  );
-} else if (resultNumber === 0 && playerSelection !== -100) {
-  window.alert(
-    "-|".repeat(22) +
-      `\nIt's a draw!! Both of you lost no one wins!!➖➖ \n` +
-      "-|".repeat(22) +
-      `\nFinal score: ${userName} (${score1})|(${score2}) SkyNet`
-  );
 }
 
 game();
